@@ -1,137 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI WasteWise</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+<title>AI WasteWise | Smart Waste Segregation</title>
 
-        body {
-            background: #f4f7f5;
-            color: #1f2937;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        header {
-            background: #166534;
-            color: white;
-            padding: 25px 20px;
-            text-align: center;
-        }
+body {
+    background: #f3f7f4;
+    color: #17202a;
+    line-height: 1.6;
+}
 
-        header h1 {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
+header {
+    background: linear-gradient(135deg, #166534, #15803d);
+    color: white;
+    padding: 45px 20px;
+    text-align: center;
+}
 
-        header p {
-            font-size: 16px;
-        }
+header h1 {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
 
-        .container {
-            max-width: 850px;
-            margin: 35px auto;
-            padding: 20px;
-        }
+header p {
+    font-size: 18px;
+}
 
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
-        }
+.badge {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.18);
+    font-size: 14px;
+}
 
-        .card h2 {
-            margin-bottom: 10px;
-            color: #166534;
-        }
+.container {
+    max-width: 1000px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
 
-        .card p {
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
 
-        textarea {
-            width: 100%;
-            min-height: 120px;
-            padding: 15px;
-            border: 1px solid #d1d5db;
-            border-radius: 10px;
-            font-size: 16px;
-            resize: vertical;
-        }
+.card h2 {
+    color: #166534;
+    margin-bottom: 10px;
+    font-size: 26px;
+}
 
-        button {
-            margin-top: 15px;
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            background: #16a34a;
-            color: white;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.card p {
+    margin-bottom: 18px;
+}
 
-        button:hover {
-            background: #15803d;
-        }
+textarea {
+    width: 100%;
+    min-height: 130px;
+    padding: 16px;
+    border: 2px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 16px;
+    resize: vertical;
+}
 
-        #result {
-            display: none;
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: 12px;
-            background: #f0fdf4;
-            border-left: 5px solid #16a34a;
-        }
+textarea:focus {
+    outline: none;
+    border-color: #16a34a;
+}
 
-        .category {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #16a34a;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .tip {
-            margin-top: 12px;
-            padding: 12px;
-            background: #ecfdf5;
-            border-radius: 8px;
-        }
+button:hover {
+    background: #15803d;
+}
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
+.examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
 
-        .feature {
-            background: #f0fdf4;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
+.example-btn {
+    width: auto;
+    margin: 0;
+    padding: 9px 14px;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 14px;
+}
 
-        .feature h3 {
-            margin-bottom: 8px;
-            color: #166534;
-        }
+.example-btn:hover {
+    background: #bbf7d0;
+}
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #6b7280;
-            font-size: 14px;
-        }
-    </style>
+#result {
+    display: none;
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 14px;
+    background: #f0fdf4;
+    border-left: 6px solid #16a34a;
+}
+
+#category {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tip {
+    margin-top: 15px;
+    padding: 14px;
+    background: #ecfdf5;
+    border-radius: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 15px;
+}
+
+.feature {
+    background: #f0fdf4;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.feature h3 {
+    color: #166534;
+    margin-bottom: 8px;
+}
+
+.workflow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.step {
+    background: #dcfce7;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 170px;
+}
+
+.arrow {
+    font-size: 25px;
+    color: #16a34a;
+}
+
+.notice {
+    background: #fff7ed;
+    border-left: 5px solid #f97316;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #64748b;
+    font-size: 14px;
+}
+</style>
 </head>
 
 <body>
@@ -139,28 +204,34 @@
 <header>
     <h1>♻️ AI WasteWise</h1>
     <p>AI-Powered Waste Segregation and Recycling Assistant</p>
+    <div class="badge">Supporting SDG 12 • Responsible Consumption and Production</div>
 </header>
 
 <div class="container">
 
     <div class="card">
-        <h2>Identify Your Waste</h2>
+        <h2>🔍 Identify Your Waste</h2>
 
         <p>
             Enter the name or description of a waste item.
-            AI WasteWise will suggest the appropriate waste category
-            and disposal guidance.
+            AI WasteWise will suggest a suitable waste category
+            and provide disposal guidance.
         </p>
 
         <textarea id="wasteInput"
-            placeholder="Example: plastic water bottle, banana peel, old battery..."></textarea>
+        placeholder="Example: plastic water bottle, banana peel, old battery, cardboard box..."></textarea>
 
-        <button onclick="identifyWaste()">
-            🔍 Identify Waste
-        </button>
+        <button onclick="identifyWaste()">🔎 Identify Waste</button>
+
+        <div class="examples">
+            <button class="example-btn" onclick="tryExample('plastic water bottle')">Plastic Bottle</button>
+            <button class="example-btn" onclick="tryExample('banana peel')">Banana Peel</button>
+            <button class="example-btn" onclick="tryExample('old battery')">Old Battery</button>
+            <button class="example-btn" onclick="tryExample('cardboard box')">Cardboard</button>
+        </div>
 
         <div id="result">
-            <div class="category" id="category"></div>
+            <div id="category"></div>
 
             <p id="recommendation"></p>
 
@@ -171,40 +242,101 @@
         </div>
     </div>
 
+
     <div class="card">
-        <h2>How AI WasteWise Works</h2>
+        <h2>🤖 How AI WasteWise Works</h2>
 
-        <div class="features">
+        <div class="workflow">
 
-            <div class="feature">
-                <h3>1. Input</h3>
-                <p>User enters a waste item or description.</p>
+            <div class="step">
+                <strong>1. User Input</strong>
+                <br>
+                Waste description
             </div>
 
-            <div class="feature">
-                <h3>2. AI Classification</h3>
-                <p>The system identifies the likely waste category.</p>
+            <div class="arrow">→</div>
+
+            <div class="step">
+                <strong>2. AI Classification</strong>
+                <br>
+                Identify category
             </div>
 
-            <div class="feature">
-                <h3>3. Guidance</h3>
-                <p>The system provides disposal and recycling advice.</p>
+            <div class="arrow">→</div>
+
+            <div class="step">
+                <strong>3. Knowledge Guidance</strong>
+                <br>
+                Disposal information
             </div>
 
-            <div class="feature">
-                <h3>4. Sustainability</h3>
-                <p>The user receives an eco-friendly recommendation.</p>
+            <div class="arrow">→</div>
+
+            <div class="step">
+                <strong>4. Recommendation</strong>
+                <br>
+                Sustainable action
             </div>
 
         </div>
     </div>
 
+
+    <div class="card">
+        <h2>♻️ Waste Categories</h2>
+
+        <div class="grid">
+
+            <div class="feature">
+                <h3>♻️ Recyclable</h3>
+                <p>Paper, cardboard, suitable plastics, glass and metals.</p>
+            </div>
+
+            <div class="feature">
+                <h3>🍌 Organic</h3>
+                <p>Food scraps, fruit peels and other biodegradable materials.</p>
+            </div>
+
+            <div class="feature">
+                <h3>⚠️ Hazardous</h3>
+                <p>Batteries, chemicals, medicines and other special waste.</p>
+            </div>
+
+            <div class="feature">
+                <h3>🗑️ General</h3>
+                <p>Items that cannot be confidently placed in another category.</p>
+            </div>
+
+        </div>
+    </div>
+
+
     <div class="card">
         <h2>🎯 Sustainable Development Goal</h2>
+
         <p>
-            This project primarily supports <strong>SDG 12 –
-            Responsible Consumption and Production</strong> by encouraging
-            better waste segregation, recycling, and responsible disposal.
+            AI WasteWise primarily supports
+            <strong>SDG 12 – Responsible Consumption and Production</strong>
+            by encouraging better waste segregation, recycling and responsible disposal.
+        </p>
+    </div>
+
+
+    <div class="card">
+        <h2>🛡️ Responsible AI</h2>
+
+        <div class="notice">
+            AI-generated recommendations are intended as guidance.
+            Waste-management rules can vary by location. Users should
+            verify special disposal requirements with their local
+            waste-management authority.
+        </div>
+
+        <br>
+
+        <p>
+            The project aims to avoid unnecessary collection of personal
+            information and provide transparent recommendations.
         </p>
     </div>
 
@@ -214,57 +346,74 @@
     AI WasteWise | AI for Sustainability Project
 </footer>
 
+
 <script>
+
+function tryExample(item) {
+    document.getElementById("wasteInput").value = item;
+    identifyWaste();
+}
 
 function identifyWaste() {
 
     const input = document.getElementById("wasteInput")
-        .value.toLowerCase()
+        .value
+        .toLowerCase()
         .trim();
 
     const result = document.getElementById("result");
-    const category = document.getElementById("category");
-    const recommendation = document.getElementById("recommendation");
-    const tip = document.getElementById("tip");
 
     if (input === "") {
         alert("Please enter a waste item first.");
         return;
     }
 
-    let wasteCategory = "";
-    let wasteRecommendation = "";
-    let sustainabilityTip = "";
+    let category = "";
+    let recommendation = "";
+    let tip = "";
 
+    /* Hazardous waste */
     if (
         input.includes("battery") ||
-        input.includes("cell") ||
         input.includes("chemical") ||
         input.includes("medicine") ||
-        input.includes("paint")
+        input.includes("paint") ||
+        input.includes("pesticide") ||
+        input.includes("bulb") ||
+        input.includes("thermometer")
     ) {
-        wasteCategory = "⚠️ Hazardous Waste";
-        wasteRecommendation =
-            "Do not place this item in regular household waste. Use an appropriate hazardous-waste, e-waste, or special collection facility.";
-        sustainabilityTip =
-            "Keep hazardous materials separate and follow local disposal guidelines.";
+
+        category = "⚠️ Hazardous Waste";
+
+        recommendation =
+            "Do not place this item in regular household waste. Use an appropriate hazardous-waste, e-waste or special collection facility.";
+
+        tip =
+            "Keep hazardous materials separate and follow local disposal requirements.";
     }
 
+    /* Organic waste */
     else if (
         input.includes("banana") ||
         input.includes("food") ||
         input.includes("vegetable") ||
         input.includes("fruit") ||
         input.includes("peel") ||
+        input.includes("compost") ||
+        input.includes("leftover") ||
         input.includes("organic")
     ) {
-        wasteCategory = "🍌 Organic Waste";
-        wasteRecommendation =
+
+        category = "🍌 Organic Waste";
+
+        recommendation =
             "Place this item in the organic or compostable waste stream where available.";
-        sustainabilityTip =
-            "Composting organic waste can help return nutrients to the soil.";
+
+        tip =
+            "Composting suitable organic waste can help return nutrients to the soil.";
     }
 
+    /* Recyclable waste */
     else if (
         input.includes("plastic") ||
         input.includes("bottle") ||
@@ -272,26 +421,35 @@ function identifyWaste() {
         input.includes("cardboard") ||
         input.includes("glass") ||
         input.includes("can") ||
-        input.includes("metal")
+        input.includes("metal") ||
+        input.includes("newspaper") ||
+        input.includes("carton")
     ) {
-        wasteCategory = "♻️ Recyclable Waste";
-        wasteRecommendation =
+
+        category = "♻️ Recyclable Waste";
+
+        recommendation =
             "Place the item in the recyclable waste stream if your local recycling system accepts this material. Clean and separate it when appropriate.";
-        sustainabilityTip =
-            "Reuse items when possible and recycle materials through your local collection system.";
+
+        tip =
+            "Reuse items when possible and recycle suitable materials through your local collection system.";
     }
 
+    /* General waste */
     else {
-        wasteCategory = "🗑️ General Waste";
-        wasteRecommendation =
-            "This item could not be confidently classified from the description. Check your local waste-management guidelines before disposal.";
-        sustainabilityTip =
+
+        category = "🗑️ General Waste";
+
+        recommendation =
+            "The item could not be confidently classified from the description. Check local waste-management guidelines before disposal.";
+
+        tip =
             "When unsure, avoid mixing potentially recyclable or hazardous materials with general waste.";
     }
 
-    category.textContent = wasteCategory;
-    recommendation.textContent = wasteRecommendation;
-    tip.textContent = sustainabilityTip;
+    document.getElementById("category").textContent = category;
+    document.getElementById("recommendation").textContent = recommendation;
+    document.getElementById("tip").textContent = tip;
 
     result.style.display = "block";
 }
